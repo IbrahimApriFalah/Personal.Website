@@ -261,3 +261,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+document.getElementById("contact-form")
+.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+emailjs.sendForm(
+"service_irbgk3v",
+"template_wd49drq",
+this
+).then(
+function() {
+alert("Pesan berhasil dikirim!");
+},
+function(error) {
+alert("Pesan gagal dikirim");
+}
+);
+
+});
