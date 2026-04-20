@@ -227,3 +227,37 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+document.addEventListener("DOMContentLoaded", function () {
+
+  const buttons = document.querySelectorAll(".edu-btn");
+
+  buttons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+      const content = this.nextElementSibling;
+      const icon = this.querySelector("span");
+
+      document.querySelectorAll(".edu-content").forEach(item => {
+        if (item !== content) {
+          item.style.display = "none";
+        }
+      });
+
+      document.querySelectorAll(".edu-btn span").forEach(span => {
+        span.textContent = "+";
+      });
+
+      if (content.style.display === "block") {
+        content.style.display = "none";
+        icon.textContent = "+";
+      } else {
+        content.style.display = "block";
+        icon.textContent = "−";
+      }
+
+    });
+
+  });
+
+});
